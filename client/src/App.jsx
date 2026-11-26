@@ -1,115 +1,55 @@
 
-import { useState } from "react";
-import {
-  LayoutDashboard,
-  Trophy,
-  Users,
-  PlusCircle,
-  History,
-  Menu
-} from "lucide-react";
-
+import React, { useState } from "react";
 import "./App.css";
+
+import Navbar from "./components/Navbar";
+import Dashboard from "./components/Dashboard";
+import CreateMatch from "./components/CreateMatch";
+import TeamManagement from "./components/TeamManagement";
+import Scoreboard from "./components/Scoreboard";
 
 function App() {
   const [activePage, setActivePage] = useState("Dashboard");
 
-  const menuItems = [
-    { name: "Dashboard", icon: LayoutDashboard },
-    { name: "Create Match", icon: PlusCircle },
-    { name: "Teams", icon: Users },
-    { name: "Scoreboard", icon: Trophy },
-    { name: "Match History", icon: History }
-  ];
-
   return (
     <div className="app">
+      <Navbar />
 
-      <aside className="sidebar">
-        <h2>🏏 CricketPro</h2>
+      <div className="main-container">
 
-        <div className="menu">
-          {menuItems.map((item) => {
-            const Icon = item.icon;
+        <aside className="sidebar">
+          <h2>🏏 Cricket App</h2>
 
-            return (
-              <button
-                key={item.name}
-                className={activePage === item.name ? "active" : ""}
-                onClick={() => setActivePage(item.name)}
-              >
-                <Icon size={20} />
-                {item.name}
-              </button>
-            );
-          })}
-        </div>
-      </aside>
-
-      <main className="main-content">
-
-        <header>
-          <button className="mobile-menu">
-            <Menu />
+          <button onClick={() => setActivePage("Dashboard")}>
+            🏠 Dashboard
           </button>
-          <h2>{activePage}</h2>
-          <span>Welcome, Admin 👋</span>
-        </header>
 
-        {activePage === "Dashboard" && (
-          <>
-            <h1>Cricket Dashboard</h1>
-            <p>Manage your cricket matches easily.</p>
+          <button onClick={() => setActivePage("Create Match")}>
+            ➕ Create Match
+          </button>
 
-            <div className="stats">
+          <button onClick={() => setActivePage("Teams")}>
+            👥 Teams
+          </button>
 
-              <div className="stat-card">
-                <h3>Total Matches</h3>
-                <h1>12</h1>
-              </div>
+          <button onClick={() => setActivePage("Scoreboard")}>
+            🏆 Scoreboard
+          </button>
+        </aside>
 
-              <div className="stat-card">
-                <h3>Total Teams</h3>
-                <h1>8</h1>
-              </div>
+        <main className="main-content">
 
-              <div className="stat-card">
-                <h3>Total Players</h3>
-                <h1>80</h1>
-              </div>
+          {activePage === "Dashboard" && <Dashboard />}
 
-              <div className="stat-card">
-                <h3>Completed</h3>
-                <h1>9</h1>
-              </div>
+          {activePage === "Create Match" && <CreateMatch />}
 
-            </div>
+          {activePage === "Teams" && <TeamManagement />}
 
-            <div className="welcome-card">
-              <h2>🏏 Organize Your Cricket Tournament</h2>
-              <p>
-                Create matches, manage teams, track scores
-                and view match results in one place.
-              </p>
+          {activePage === "Scoreboard" && <Scoreboard />}
 
-              <button onClick={() => setActivePage("Create Match")}>
-                Create New Match
-              </button>
-            </div>
-          </>
-        )}
+        </main>
 
-        {activePage !== "Dashboard" && (
-          <div className="welcome-card">
-            <h2>{activePage}</h2>
-            <p>
-              {activePage} section will be developed
-              in the next steps.
-            </p>
-          </div>
-        )}
-
-      </main>
+      </div>
     </div>
   );
 }

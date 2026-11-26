@@ -1,9 +1,22 @@
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
+  padding: 0;
   min-width: 320px;
+  min-height: 100vh;
+  background: #f4f7f6;
+}
+
+button,
+input,
+select {
+  font-family: inherit;
 }
 
 button {
-  font-family: inherit;
+  cursor: pointer;
 }
