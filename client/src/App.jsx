@@ -18,22 +18,22 @@ function App() {
       <div className="main-container">
 
         <aside className="sidebar">
-          <h2>🏏 Cricket App</h2>
+          <h2> Cricket App</h2>
 
           <button onClick={() => setActivePage("Dashboard")}>
-            🏠 Dashboard
+             Dashboard
           </button>
 
           <button onClick={() => setActivePage("Create Match")}>
-            ➕ Create Match
+             Create Match
           </button>
 
           <button onClick={() => setActivePage("Teams")}>
-            👥 Teams
+             Teams
           </button>
 
           <button onClick={() => setActivePage("Scoreboard")}>
-            🏆 Scoreboard
+             Scoreboard
           </button>
         </aside>
 
