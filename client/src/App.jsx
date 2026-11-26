@@ -2,9 +2,9 @@
 import React, { useState } from "react";
 import "./App.css";
 
-import Navbar from "./components/Navbar";
-import Dashboard from "./components/Dashboard";
-import CreateMatch from "./components/CreateMatch";
+import Navbar from "./Components/Navbar";
+import Dashboard from "./Components/Dashboard";
+import CreateMatch from "./Components/CreateMatch";
 import TeamManagement from "./components/TeamManagement";
 import Scoreboard from "./components/Scoreboard";
 
